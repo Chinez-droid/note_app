@@ -1,4 +1,3 @@
-// edit_screen.dart
 import 'package:flutter/material.dart';
 import 'package:note_app/models/note.dart';
 
@@ -54,14 +53,19 @@ class _EditScreenState extends State<EditScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                final newTitle = _titleController.text;
-                final newContent = _contentController.text;
-                widget.editNote(widget.index, newTitle, newContent);
-                Navigator.pop(context);
-              },
-              child: const Text('Save'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    final newTitle = _titleController.text;
+                    final newContent = _contentController.text;
+                    widget.editNote(widget.index, newTitle, newContent);
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Save'),
+                ),
+              ],
             ),
           ],
         ),

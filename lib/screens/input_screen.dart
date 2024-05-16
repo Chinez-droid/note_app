@@ -52,7 +52,7 @@ class _InputScreenState extends State<InputScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Note',
+                  'Content',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
