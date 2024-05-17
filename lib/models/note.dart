@@ -1,18 +1,4 @@
-const String tableNotes = 'notes';
-
-class NoteFields {
-  static final List<String> values = [
-    id,
-    title,
-    content,
-    createdAt,
-  ];
-
-  static const String id = '_id';
-  static const String title = 'title';
-  static const String content = 'content';
-  static const String createdAt = 'createdAt';
-}
+import 'package:note_app/data/database_helper.dart';
 
 class Note {
   final int? id;

@@ -7,12 +7,14 @@ class NoteCard extends StatelessWidget {
   final Note note;
   final int index;
   final Function(int, String, String) editNote;
+  final bool isDarkMode;
 
   const NoteCard({
     super.key,
     required this.note,
     required this.index,
     required this.editNote,
+    required this.isDarkMode,
   });
 
   @override
@@ -29,6 +31,7 @@ class NoteCard extends StatelessWidget {
               note: note,
               index: index,
               editNote: editNote,
+              isDarkMode: isDarkMode,
             ),
           ),
         );
@@ -36,7 +39,7 @@ class NoteCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.purple.shade100,
+          color: isDarkMode ? Colors.blueGrey.shade800 : Colors.purple.shade100,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -47,18 +50,26 @@ class NoteCard extends StatelessWidget {
                 children: [
                   Text(
                     note.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
+                      color: isDarkMode ? Colors.white : Colors.black,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(note.content),
+                  Text(
+                    note.content,
+                    style: TextStyle(
+                      color: isDarkMode ? Colors.white : Colors.black,
+                    ),
+                  ),
                   const SizedBox(height: 8),
                   Text(
                     formattedDate,
                     style: TextStyle(
-                      color: Colors.grey.shade600,
+                      color: isDarkMode
+                          ? Colors.grey.shade400
+                          : Colors.grey.shade600,
                       fontSize: 12,
                     ),
                   ),

@@ -5,12 +5,14 @@ class EditScreen extends StatefulWidget {
   final Note note;
   final int index;
   final Function(int, String, String) editNote;
+  final bool isDarkMode;
 
   const EditScreen({
     super.key,
     required this.note,
     required this.index,
     required this.editNote,
+    required this.isDarkMode,
   });
 
   @override
@@ -47,7 +49,7 @@ class _EditScreenState extends State<EditScreen> {
             const SizedBox(height: 16),
             TextField(
               controller: _contentController,
-              maxLines: null,
+              maxLines: 1,
               decoration: const InputDecoration(
                 labelText: 'Content',
               ),
@@ -63,6 +65,12 @@ class _EditScreenState extends State<EditScreen> {
                     widget.editNote(widget.index, newTitle, newContent);
                     Navigator.pop(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: widget.isDarkMode
+                        ? Colors.blueGrey.shade600
+                        : Colors.purple.shade300,
+                    foregroundColor: Colors.white,
+                  ),
                   child: const Text('Save'),
                 ),
               ],
